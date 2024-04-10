@@ -14,7 +14,7 @@ features without negatively impacting existing components.
 ## How to run
 
 ```
- docker-compose up -d
+ cd super-frete-api/ && docker-compose up -d
 ```
 
  After running the above command, simply access the link below to view endpoints.
