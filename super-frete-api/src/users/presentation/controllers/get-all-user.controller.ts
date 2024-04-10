@@ -1,5 +1,6 @@
 import { Controller, Inject, Get } from '@nestjs/common';
 import { FullPartial } from '@shared/application/types/partial.types';
+import { GetAllUsersSwaggerDocs } from '@users/application/documentation/swagger/get-all-users.swagger.docs';
 
 import { UserEntity } from '@users/domain/entities/user.entity';
 import { IGetAllUsersUsecase } from '@users/domain/usecases/get-all-users.usecase.interface';
@@ -11,6 +12,7 @@ export class GetAllUsersController {
     @Inject(GET_ALL_USERS_USECASE) private usecase: IGetAllUsersUsecase,
   ) {}
 
+  @GetAllUsersSwaggerDocs()
   @Get()
   public async getAll(): Promise<FullPartial<UserEntity[]>> {
     return this.usecase.execute();

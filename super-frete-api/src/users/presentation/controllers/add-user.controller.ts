@@ -1,5 +1,6 @@
 import { Controller, Post, Body, Inject } from '@nestjs/common';
 import { FullPartial } from '@shared/application/types/partial.types';
+import { AddUsersSwaggerDocs } from '@users/application/documentation/swagger/add-users.swagger.docs';
 import {
   IAddUsersPayloadV1UsecaseInput,
   IAddUsersUsecaseInput,
@@ -14,6 +15,7 @@ export class AddUsersController {
     @Inject(ADD_USERS_USECASE) private usecase: IAddUsersUsecase,
   ) {}
 
+  @AddUsersSwaggerDocs()
   @Post()
   public async createUser(
     @Body() payload: IAddUsersPayloadV1UsecaseInput,
